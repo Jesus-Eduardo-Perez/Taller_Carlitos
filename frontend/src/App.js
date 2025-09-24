@@ -4,7 +4,9 @@ function App() {
   return (
     <div className= {styles.container}>
       <Header />
-      <div className= {styles.content}></div>
+      <div className= {styles.content}>
+        <h2>Busca la pieza que necesites</h2>
+      </div>
     </div>
   );
 }

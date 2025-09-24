@@ -7,7 +7,12 @@ function Header () {
             <div className=  {styles.LogoContainer}>
                 <img width={167} height={200} src = {Taller_logo} alt="Taller carlitos"/>
             </div>
+            <div className=  {styles.WhiteDiagonal}>
+            </div>
             <div className={styles.OptionsBar}>
+                <a href="/">CATÁLOGO</a>
+                <a href="/">UBICACIÓN</a>
+                <a href="/">CONTACTANOS</a>
             </div>
         </div>
     );
