@@ -5,6 +5,9 @@ function Catalog() {
     return(
         <div className={styles.Container}>
             <Header />
+            <div className={styles.content}>
+                <h2>Busca la pieza que necesites</h2>
+            </div>
         </div>  
     );
 }
