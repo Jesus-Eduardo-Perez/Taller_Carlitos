@@ -1,13 +1,14 @@
-import Header from './Components/Header';
-import styles from './CSS/App.module.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+
+import Catalog from './Pages/Catalog';
 function App() {
   return (
-    <div className= {styles.container}>
-      <Header />
-      <div className= {styles.content}>
-        <h2>Busca la pieza que necesites</h2>
-      </div>
-    </div>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Catalog />}/>
+        </Routes>
+      </Router>
   );
 }
 
