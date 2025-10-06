@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Styles from '../CSS/Login.module.css'
 import { CiUser, CiLock } from "react-icons/ci";
+import { login } from "../Services/authService";
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -13,7 +14,7 @@ function Login() {
         e.preventDefault();
         setError('');
     
-        /*try {
+        try {
             const data = await login(email, password);
             localStorage.setItem('token', data.token);
     
@@ -24,7 +25,7 @@ function Login() {
             }
         } catch (err) {
             setError(err); // Muestra el mensaje de error en pantalla
-        }*/
+        }
     };
     return (
         <div className= {Styles.container}>
