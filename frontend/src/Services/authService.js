@@ -36,4 +36,5 @@ export const getUserProfile = async () => {
 };
 export const logout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user_type');
 };

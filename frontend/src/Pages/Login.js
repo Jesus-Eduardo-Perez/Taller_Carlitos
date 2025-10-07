@@ -17,7 +17,7 @@ function Login() {
         try {
             const data = await login(email, password);
             localStorage.setItem('token', data.token);
-    
+            localStorage.setItem('user_type', data.user_type);
             if (data.redirectPage) {
                 navigate(data.redirectPage);
             } else {
