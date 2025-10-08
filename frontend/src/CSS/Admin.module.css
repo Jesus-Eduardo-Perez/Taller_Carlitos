@@ -1,0 +1,73 @@
+.container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    align-items: center;
+    flex-direction: column;
+   
+}
+body {
+    font-family: 'outfit'; 
+    display: flex;
+}
+.container_admin{
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 16px;
+    border: 2px solid #EE5300;
+}
+.container p{
+    font-size: 32px;
+    color: #EE5300;
+    font-weight: bold;
+}
+.container h4{
+    font-size: 24;
+    font-weight: normal;
+}
+.brands_container{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;  /* Espacio entre botones */
+    margin-top: 20px;
+}
+.imageButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 150px;
+    height: 150px;
+    transition: transform 0.2s ease-in-out;
+    background-color: #FF8F52;
+    border-radius: 16px;
+}
+
+.imageButton:hover {
+    transform: scale(1.05); /* Efecto de agrandamiento */
+}
+
+.image {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+.buttonContainer {
+    display: flex;
+    width: auto;
+    height: auto;
+    align-items: center;
+    flex-direction: column;
+}
