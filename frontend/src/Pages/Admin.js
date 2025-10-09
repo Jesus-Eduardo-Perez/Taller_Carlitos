@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from "react";
 import styles from '../CSS/Admin.module.css'
 import Header from '../Components/Header'
-import { useAsyncError, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { getUserProfile } from "../Services/authService";
+import { FaCar } from "react-icons/fa6";
+import { FaTools } from "react-icons/fa";
+
 function Admin() {
     const navigate = useNavigate();
 
@@ -21,8 +24,8 @@ function Admin() {
         fetchUser();
     }, []);
     const options = [
-        { id: 1, nombre: "Marcas", ruta: "/admin/marcas"},
-        { id: 2, nombre: "Piezas", ruta: "/admin/piezas"}
+        { id: 1, nombre: "Marcas", icon: <FaCar className={styles.icon}/>, ruta: "/admin/marcas"},
+        { id: 2, nombre: "Piezas", icon: <FaTools className={styles.icon}/>,ruta: "/admin/piezas"}
     ]
     return(
         <div className= {styles.container}>
@@ -41,6 +44,7 @@ function Admin() {
                                 navigate(option.ruta)
                             }
                         }}>
+                            {option.icon}
                         </button>
                         <h4>{option.nombre}</h4>
                         </div>
