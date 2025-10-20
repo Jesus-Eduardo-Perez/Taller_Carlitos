@@ -15,10 +15,12 @@ body {
 }
 .container .options{
     display: flex;
-    width: 100%;
+    width: 70%;
     height: auto;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-bottom: 24px
 }
 .container .option_button{
     display: flex;

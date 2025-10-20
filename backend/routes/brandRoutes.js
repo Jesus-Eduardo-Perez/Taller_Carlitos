@@ -21,5 +21,7 @@ const upload = multer({ storage });
 // Rutas
 router.get('/', brandController.getBrands);
 router.post('/', upload.single('image'), brandController.createBrand);
+router.put('/:id', upload.single('image'), brandController.updateBrand);
+router.delete('/:id', brandController.deleteBrand);
 
 module.exports = router;
