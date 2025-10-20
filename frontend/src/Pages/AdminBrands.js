@@ -14,7 +14,7 @@ function AdminBrands () {
     return(
         <div className={styles.container}>
             <Header />
-            <div>
+            <div className={styles.options}>
                 <h1>Marcas</h1>
                 <div className={styles.option_button} >
                   <p>Agregar</p>
@@ -22,6 +22,9 @@ function AdminBrands () {
                      <IoIosAddCircleOutline className={styles.icon} />
                   </button>
                 </div>
+            </div>
+            <div>
+              
             </div>
              <AddBrand
              isOpen={isModalOpen}

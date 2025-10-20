@@ -28,9 +28,10 @@ function AddBrand({ isOpen, onClose}) {
         <h2>Agregar marca</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.form_group}>
+            <label>Cargar Imagen</label>
+            <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} required />
             <label>Nombre de la marca</label>
             <input type="text" placeholder="Nombre de la marca" value={name} onChange={(e) => setName(e.target.value)} required/>
-            <input type="file" accept="image/*" onChange={(e) => setImage(e.target.files[0])} required />
           </div>
           <button type="submit" className={styles.saveButton}>Guardar</button>
         </form>
