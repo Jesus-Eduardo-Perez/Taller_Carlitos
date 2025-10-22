@@ -1,4 +1,6 @@
 const Brand = require('../models/brandModel');
+const fs = require('fs');
+const path = require('path');
 
 exports.getBrands = (req, res) => {
     Brand.getAll((err, results) => {

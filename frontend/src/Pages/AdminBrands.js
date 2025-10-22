@@ -37,7 +37,7 @@ function AdminBrands () {
             {brands.map((brand) => (
                 <BrandComponent
                   key={brand.id}
-                  nameBrand={brand.name}
+                  brand = {brand}
                 />
             ))}
             
