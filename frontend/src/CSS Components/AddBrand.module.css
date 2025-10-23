@@ -79,3 +79,41 @@
   .saveButton:hover {
     background-color: #FF8F52;
   }
+   /* Botón cerrar */
+  .closeButton {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    color: #003366;
+    cursor: pointer;
+  }
+  
+  /* Contenedor de botones */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+  
+  /* Botón eliminar */
+  .deleteButton {
+    background-color: #cc0000;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  .cancelButton {
+    background-color: #777;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+  } 

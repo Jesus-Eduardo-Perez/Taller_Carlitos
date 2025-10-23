@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styles from '../CSS Components/AddBrand.module.css';
 
-function EditBrandModal({isOpen, onClose, brand, onUpdate}) {
+function EditBrandModal({onClose, brand, onUpdate}) {
     const [formData, setFormData] = useState({...brand});
 
     const handleChange = (e) => {
@@ -17,7 +17,6 @@ function EditBrandModal({isOpen, onClose, brand, onUpdate}) {
         onUpdate(brand.id, formData);
         onClose();
     }
-    if(!isOpen) return null;
     return(
         <div className = {styles.overlay}>
             <div className= {styles.modal}>
