@@ -19,6 +19,8 @@ function AddBrand({ isOpen, onClose}) {
     });
 
     alert('Marca agregada correctamente');
+
+    window.location.reload();
     };
     if (!isOpen) return null;
     return (
