@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000';
+import { API_URL } from '../utils';
 
 // Interceptor para agregar token si lo usas
 axios.interceptors.request.use((config) => {

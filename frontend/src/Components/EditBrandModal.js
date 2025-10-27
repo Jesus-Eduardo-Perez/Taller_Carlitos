@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import styles from '../CSS Components/AddBrand.module.css';
+import { API_URL } from "../utils";
 
 function EditBrandModal({onClose, brand, onUpdate}) {
     const [formData, setFormData] = useState({...brand});
@@ -24,7 +25,7 @@ function EditBrandModal({onClose, brand, onUpdate}) {
                 <h2>Editar Marca {brand.name}</h2>
                     <div className={styles.form_group}>
                         <label>Cambiar Imagen</label>
-                        <img src={`http://localhost:3000${brand.image_url}`} alt={brand.name} width="150" height="150"/>
+                        <img src={`${API_URL}${brand.image_url}`} alt={brand.name} width="150" height="150"/>
                         <input name="image" type="file" accept="image/*" onChange={handleChange} required />
                         <label>Nombre de la marca</label>
                         <input name = "name" type="text" placeholder="Nombre de la marca" value={formData.name} onChange={handleChange} required/>

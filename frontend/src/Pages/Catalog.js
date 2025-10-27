@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import styles from '../CSS/Catalog.module.css'
 import Header from '../Components/Header'
 import { getBrands } from "../Services/brandService";
+import { API_URL } from "../utils";
 function Catalog() {
     const [brands, setBrands] = useState([]);
     const loadBrands = async () => {
@@ -21,7 +22,7 @@ function Catalog() {
                         <button 
                         key={brand.id}
                         className= {styles.imageButton}>
-                           <img src={`http://localhost:3000${brand.image_url}`} alt={brand.name} className={styles.image}/> 
+                           <img src={`${API_URL}${brand.image_url}`} alt={brand.name} className={styles.image}/> 
                         </button>
                     ))}
                 </div>
