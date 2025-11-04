@@ -7,6 +7,7 @@ import Admin from './Pages/Admin';
 import PrivateRoute from './Components/PrivateRoute';
 import AdminBrands from './Pages/AdminBrands';
 import BrandPage from './Pages/BrandPage';
+import AdminParts from './Pages/AdminParts';
 function App() {
   return (
       <Router>
@@ -16,6 +17,7 @@ function App() {
           <Route path='/login' element={<Login />}/>
           <Route path='/admin' element={<PrivateRoute element={<Admin />}/>}/>
           <Route path='/admin/marcas' element={<PrivateRoute element={<AdminBrands />}/>} />
+          <Route path='/admin/piezas' element={<PrivateRoute element={<AdminParts />} />} />
         </Routes>
       </Router>
   );

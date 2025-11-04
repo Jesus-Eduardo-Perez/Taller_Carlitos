@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const authRoutes = require('./routes/authRoutes');
 const brandRoutes = require('./routes/brandRoutes');
+const partRoutes = require('./routes/partRoutes')
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/brands', brandRoutes);
+app.use('/api/parts', partRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}`));

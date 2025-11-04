@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    align-items: center;
+    flex-direction: column;
+   
+}
+body {
+    font-family: 'outfit'; 
+    display: flex;
+}
+.container .options{
+    display: flex;
+    width: 70%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 24px;
+    margin-bottom: 24px
+}
+.container .option_button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.options h2 {
+    color: #EE5300;
+}
+.icon{
+  display: flex;
+  color: black;
+  width: clamp(1rem, 2.5vw, 3rem);
+  height: clamp(1rem, 2.5vw, 3rem);
+  margin-right: 10px;
+  cursor:pointer;
+}
