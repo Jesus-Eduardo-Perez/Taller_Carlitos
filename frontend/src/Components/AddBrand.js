@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import axios from 'axios';
 import styles from "../CSS Components/AddBrand.module.css";
+import { API_URL } from "../utils";
 
-const API_URL = 'http://localhost:3000/api/brands';
+const URL = `${API_URL}/api/brands`;
 function AddBrand({ isOpen, onClose}) {
     const [name, setName] = useState('');
     const [image, setImage] = useState(null);
@@ -14,7 +15,7 @@ function AddBrand({ isOpen, onClose}) {
     formData.append('name', name);
     formData.append('image', image);
 
-    await axios.post(API_URL, formData, {
+    await axios.post(URL, formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
 

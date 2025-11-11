@@ -28,6 +28,10 @@ body {
     justify-content: center;
     align-items: center;
 }
+.option_button button{
+    background-color: transparent;
+    color: transparent;
+}
 .options h2 {
     color: #EE5300;
 }
