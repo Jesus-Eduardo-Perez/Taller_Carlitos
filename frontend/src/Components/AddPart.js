@@ -4,13 +4,16 @@ import { createPart } from "../Services/partsService";
 
 function AddPart({ brand, onClose, onPartAdded }) {
     const [image, setImage] = useState(null);
+    const [yearStart, setYearStart] = useState("");
+    const [yearEnd, setYearEnd] = useState("");
+
     const [formData, setFormData] = useState({
         name: "",
         brand_id: brand.id,
         model: "",
         car_make: brand.name,
-        yearStart: "",
-        yearEnd: "",
+        car_model: "",
+        year_range: "",
         condition: "Usada",
         price: "",
         stock: "",
@@ -22,6 +25,17 @@ function AddPart({ brand, onClose, onPartAdded }) {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
+    // Manejo de los años, pero sin crear campos separados en formData
+    const handleYearChange = (type, value) => {
+        if (type === "start") {
+            setYearStart(value);
+            setFormData((prev) => ({ ...prev, year_range: `${value}-${yearEnd}` }));
+        } else {
+            setYearEnd(value);
+            setFormData((prev) => ({ ...prev, year_range: `${yearStart}-${value}` }));
+        }
+    };
+
     const handleImageChange = (e) => {
         setImage(e.target.files[0]);
     };
@@ -29,18 +43,13 @@ function AddPart({ brand, onClose, onPartAdded }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const dataToSend = {
-                ...formData,
-                year_range: `${formData.yearStart}-${formData.yearEnd}`,
-                image, // si tu backend lo acepta
-            };
-            await createPart(dataToSend);
-            alert("Pieza agregada con éxito");
+            await createPart(formData, image);
+            alert("✅ Pieza agregada con éxito");
             onClose();
-            if (onPartAdded) onPartAdded(); // recargar lista
+            if (onPartAdded) onPartAdded(); // refrescar lista de piezas
         } catch (error) {
             console.error("Error al crear pieza:", error);
-            alert("Error al crear la pieza");
+            alert("❌ Error al crear la pieza");
         }
     };
 
@@ -53,12 +62,24 @@ function AddPart({ brand, onClose, onPartAdded }) {
                 <form onSubmit={handleSubmit}>
                     <div className={styles.form_group}>
                         <label>Nombre de la pieza</label>
-                        <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+                        <input
+                            type="text"
+                            name="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
 
                     <div className={styles.form_group}>
                         <label>Modelo del vehículo</label>
-                        <input type="text" name="model" value={formData.model} onChange={handleChange} required />
+                        <input
+                            type="text"
+                            name="model"
+                            value={formData.model}
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
 
                     <div className={styles.form_group}>
@@ -66,20 +87,18 @@ function AddPart({ brand, onClose, onPartAdded }) {
                         <div style={{ display: "flex", gap: "0.5rem" }}>
                             <input
                                 type="number"
-                                name="yearStart"
                                 placeholder="Desde"
-                                value={formData.yearStart}
-                                onChange={handleChange}
+                                value={yearStart}
+                                onChange={(e) => handleYearChange("start", e.target.value)}
                                 min="1950"
                                 max={new Date().getFullYear()}
                             />
                             <input
                                 type="number"
-                                name="yearEnd"
                                 placeholder="Hasta"
-                                value={formData.yearEnd}
-                                onChange={handleChange}
-                                min={formData.yearStart}
+                                value={yearEnd}
+                                onChange={(e) => handleYearChange("end", e.target.value)}
+                                min={yearStart || "1950"}
                                 max={new Date().getFullYear() + 1}
                             />
                         </div>
@@ -96,17 +115,34 @@ function AddPart({ brand, onClose, onPartAdded }) {
 
                     <div className={styles.form_group}>
                         <label>Precio ($)</label>
-                        <input type="number" name="price" value={formData.price} onChange={handleChange} step="0.01" required />
+                        <input
+                            type="number"
+                            name="price"
+                            value={formData.price}
+                            onChange={handleChange}
+                            step="0.01"
+                            required
+                        />
                     </div>
 
                     <div className={styles.form_group}>
                         <label>Stock disponible</label>
-                        <input type="number" name="stock" value={formData.stock} onChange={handleChange} required />
+                        <input
+                            type="number"
+                            name="stock"
+                            value={formData.stock}
+                            onChange={handleChange}
+                            required
+                        />
                     </div>
 
                     <div className={styles.form_group}>
                         <label>Descripción</label>
-                        <textarea name="description" value={formData.description} onChange={handleChange} />
+                        <textarea
+                            name="description"
+                            value={formData.description}
+                            onChange={handleChange}
+                        />
                     </div>
 
                     <div className={styles.form_group}>

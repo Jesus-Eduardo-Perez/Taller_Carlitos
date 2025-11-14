@@ -41,10 +41,10 @@ function AdminParts() {
             <div className={styles.options}>
                 <h2>Piezas</h2>
 
-                <div className={styles.option_button}>
-                    <IoIosArrowDropleft onClick={handlePrev} className={styles.arrow} />
+                <div className={styles.option_brands}>
+                    <IoIosArrowDropleft onClick={handlePrev} className={styles.icon} />
                     <p>{currentBrand ? currentBrand.name : "Cargando..."}</p>
-                    <IoIosArrowDropright onClick={handleNext} className={styles.arrow} />
+                    <IoIosArrowDropright onClick={handleNext} className={styles.icon} />
                 </div>
 
                 <div className={styles.option_button}>

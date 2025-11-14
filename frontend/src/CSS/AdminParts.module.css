@@ -25,12 +25,22 @@ body {
 .container .option_button{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content:center;
     align-items: center;
+}
+.container .option_brands{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
+    width: 23%;
 }
 .option_button button{
     background-color: transparent;
     color: transparent;
+}
+.option_brands, .option_button p{
+    font-size: 28px;
 }
 .options h2 {
     color: #EE5300;

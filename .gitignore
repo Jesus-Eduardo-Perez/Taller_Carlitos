@@ -7,3 +7,5 @@ backend/.env
 frontend/.env
 backend/uploads/brands/*
 !backend/uploads/brands/.gitkeep
+backend/uploads/parts/*
+!backend/uploads/parts/.gitkeep
