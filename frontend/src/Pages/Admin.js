@@ -35,9 +35,8 @@ function Admin() {
                 <h1>Opciones</h1>
                 <div className= {styles.brands_container}>
                     {options.map(option => (
-                        <div className= {styles.buttonContainer}>
+                        <div key={option.id} className= {styles.buttonContainer}>
                             <button 
-                           key={option.id}
                            className = {styles.imageButton}
                            onClick={() => {
                             if(option.ruta){

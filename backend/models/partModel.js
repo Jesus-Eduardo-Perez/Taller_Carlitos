@@ -22,6 +22,15 @@ const Part = {
     `;
     db.query(sql, [id], callback);
   },
+  getByBrandId(brand_id, callback) {
+  const sql = `
+    SELECT parts.*, brands.name AS brand_name
+    FROM parts
+    JOIN brands ON parts.brand_id = brands.id
+    WHERE parts.brand_id = ?;
+  `;
+  db.query(sql, [brand_id], callback);
+},
 
   // Crear nueva pieza
   create(data, callback) {

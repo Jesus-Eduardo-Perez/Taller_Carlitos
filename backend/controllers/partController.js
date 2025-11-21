@@ -9,6 +9,14 @@ exports.getParts = (req, res) => {
     res.json(results);
   });
 };
+exports.getPartsByBrand = (req, res) => {
+  const brandId = req.params.brand_id;
+
+  Part.getByBrandId(brandId, (err, results) => {
+    if (err) return res.status(500).send(err);
+    res.json(results);
+  });
+};
 
 // Obtener una pieza por ID
 exports.getPartById = (req, res) => {

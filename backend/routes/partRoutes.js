@@ -22,5 +22,6 @@ router.get('/:id', partController.getPartById);
 router.post('/', upload.single('image'), partController.createPart);
 router.put('/:id', upload.single('image'), partController.updatePart);
 router.delete('/:id', partController.deletePart);
+router.get('/brand/:brand_id', partController.getPartsByBrand);
 
 module.exports = router;

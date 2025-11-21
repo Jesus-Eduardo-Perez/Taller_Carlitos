@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { API_URL } from '../utils';
 
-// Interceptor para agregar token automáticamente si lo usas
 axios.interceptors.request.use((config) => {
   const token = localStorage.getItem('token') || sessionStorage.getItem('token');
   if (token) {
@@ -10,9 +9,7 @@ axios.interceptors.request.use((config) => {
   return config;
 }, (error) => Promise.reject(error));
 
-/* ===============================
-   🔹 Obtener todas las piezas
-================================= */
+
 export const getParts = async () => {
   try {
     const response = await axios.get(`${API_URL}/api/parts`);
@@ -23,9 +20,6 @@ export const getParts = async () => {
   }
 };
 
-/* ===============================
-   🔹 Obtener una pieza por ID
-================================= */
 export const getPartById = async (id) => {
   try {
     const response = await axios.get(`${API_URL}/api/parts/${id}`);
@@ -35,10 +29,17 @@ export const getPartById = async (id) => {
     throw error.response?.data || 'Error al obtener pieza';
   }
 };
+export const getPartsByBrand = async (brandId) => {
+  try {
+    const response = await axios.get(`${API_URL}/api/parts/brand/${brandId}`);
+    return response.data;
+  } catch (error) {
+    console.error("Error al obtener piezas por marca:", error);
+    throw error;
+  }
+};
 
-/* ===============================
-   🔹 Crear nueva pieza
-================================= */
+
 export const createPart = async (data, imageFile = null) => {
   try {
     const formData = new FormData();
@@ -64,9 +65,6 @@ export const createPart = async (data, imageFile = null) => {
   }
 };
 
-/* ===============================
-   🔹 Actualizar pieza existente
-================================= */
 export const updatePart = async (id, data, imageFile = null) => {
   try {
     const formData = new FormData();
@@ -92,9 +90,6 @@ export const updatePart = async (id, data, imageFile = null) => {
   }
 };
 
-/* ===============================
-   🔹 Eliminar pieza
-================================= */
 export const deletePart = async (id) => {
   try {
     const response = await axios.delete(`${API_URL}/api/parts/${id}`);
